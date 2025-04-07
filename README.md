@@ -64,10 +64,10 @@ The server will start at: `http://localhost:8080`
 | `/orders/addBatchOrders`      | POST   | Add a batch of orders                    |
 
 ### 5. 📈 Delivery Optimization APIs
-| Endpoint                           | Method | Description                                                                      |
-|------------------------------------|--------|----------------------------------------------------------------------------------|
-| `/delivery/getBestDeliveryAgent`   | POST   | Get the closest delivery agent for a list of orders (greedy strategy)            |
-| `/delivery/getBestPath`            | POST   | Get best route and total time for a delivery agent across multiple orders        |
+| Endpoint                                                 | Method | Description                                                                      |
+|----------------------------------------------------------|--------|----------------------------------------------------------------------------------|
+| `/delivery/getBestDeliveryAgent`                         | POST   | Get the closest delivery agent for a list of orders (greedy strategy)            |
+| `/delivery/getBestPath?deliveryAgentId={deliveryAgentId}`| POST   | Get best route and total time for a delivery agent across multiple orders        |
 
 ## 🧠 Delivery Path Optimization Logic
 
