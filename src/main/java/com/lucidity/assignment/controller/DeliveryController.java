@@ -12,14 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/delivery")
+@RequestMapping("/delivery")
 public class DeliveryController {
 
     @Autowired
     private DeliveryAgentService deliveryAgentService;
-
-    @Autowired
-    private OrderService orderService;
 
     @Autowired
     private DeliveryOptimizationService optimizationService;
@@ -27,18 +24,6 @@ public class DeliveryController {
     @PostMapping("/addDeliveryAgent")
     public DeliveryAgent addDeliveryAgent(@RequestBody DeliveryAgent agent) {
         return deliveryAgentService.addDeliveryAgent(agent);
-    }
-
-    @PostMapping("/addOrder")
-    public Order addOrder(@RequestBody Order order) {
-        Order added = orderService.addOrder(order);
-        return added;
-    }
-
-    @PostMapping("/addBatchOrders")
-    public List<Order> addBatchOrders(@RequestBody List<Order> orders) {
-        List<Order> addedOrders = orderService.addBatchOrders(orders);
-        return addedOrders;
     }
 
     @PostMapping("/getDeliveryAgent")

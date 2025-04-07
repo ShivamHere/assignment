@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "d711d2a6-776b-4110-839b-e7707e5f844a",
+		"name": "LucidityAssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16636899"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 2,\n  \"name\": \"Bob\",\n  \"location\": { \"latitude\": 12.9352, \"longitude\": 77.6145 },\n  \"contact\": \"bob@example.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}users/addUser",
+					"host": [
+						"{{base_url}}users"
+					],
+					"path": [
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addRestaurant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 102,\n  \"name\": \"Spice Hub\",\n  \"location\": { \"latitude\": 12.9289, \"longitude\": 77.6101 },\n  \"contact\": \"spice@hub.com\",\n  \"avgPreparationTime\": 0.30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}restaurants/addRestaurant",
+					"host": [
+						"{{base_url}}restaurants"
+					],
+					"path": [
+						"addRestaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addDeliveryAgent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 201,\n  \"name\": \"Charlie\",\n  \"currentLocation\": { \"latitude\": 12.9481, \"longitude\": 77.5802 },\n  \"contact\": \"charlie@delivery.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}delivery/addDeliveryAgent",
+					"host": [
+						"{{base_url}}delivery"
+					],
+					"path": [
+						"addDeliveryAgent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addBatchOrders",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"orderId\": 301,\n    \"userId\": 1,\n    \"restaurantId\": 101\n  },\n  {\n    \"orderId\": 302,\n    \"userId\": 2,\n    \"restaurantId\": 102\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}delivery/addBatchOrders",
+					"host": [
+						"{{base_url}}delivery"
+					],
+					"path": [
+						"addBatchOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBestDeliveryAgent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"userId\": 1,\n    \"restaurantId\": 101\n  },\n  {\n    \"userId\": 2,\n    \"restaurantId\": 102\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}delivery/getBestDeliveryAgent",
+					"host": [
+						"{{base_url}}delivery"
+					],
+					"path": [
+						"getBestDeliveryAgent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBestPath",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"orderId\": 301,\n    \"userId\": 1,\n    \"restaurantId\": 101\n  },\n  {\n    \"orderId\": 302,\n    \"userId\": 2,\n    \"restaurantId\": 102\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}delivery/getBestPath?deliveryAgentId=201",
+					"host": [
+						"{{base_url}}delivery"
+					],
+					"path": [
+						"getBestPath"
+					],
+					"query": [
+						{
+							"key": "deliveryAgentId",
+							"value": "201"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	]
+}
