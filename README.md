@@ -94,7 +94,6 @@ This uses a **graph-based algorithm** to determine the best delivery sequence.
 
 - The algorithm prevents visiting a user before their respective restaurant.
 - Restaurant preparation time dynamically reduces during travel time toward it.
-- Uses a state representation like `(current_location, time_elapsed, picked_orders)` in priority queue for extensibility.
 
 ## 📬 Postman Collection
 
